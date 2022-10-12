@@ -1,21 +1,28 @@
 {
   "company": {
-    "name": "React landing page 2021",
-    "logo": "/assets/images/logo.png"
+    "name": "Erasmus+ project",
+    "logo": "/assets/images/bigpngegg.png"
   },
   "navigation": [
     {
-      "name": "Product",
+      "name": "Branding4U",
       "href": "product"
     },
     {
-      "name": "Features",
-      "href": "features"
+      "name": "Schedule",
+      "href": "schedule"
     },
-
     {
-      "name": "Pricing",
-      "href": "pricing"
+      "name": "Trainings",
+      "href": "trainings"
+    },
+    {
+      "name": "Partners",
+      "href": "partners"
+    },
+    {
+      "name": "Blog",
+      "href": "about"
     },
     {
       "name": "About",
@@ -27,97 +34,189 @@
     "href": "#"
   },
   "mainHero": {
-    "title": "Use me as your",
-    "subtitle": "landing page.",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    "img": "/assets/images/happyTeam.jpeg",
+    "title": "Erasmus+ project:",
+    "subtitle": "self-branding & marketing",
+    "description": "Project is for for educators working in youth field.",
+    "img": "/assets/images/team_working.jpg",
     "primaryAction": {
       "text": "Get started",
       "href": "#"
     },
     "secondaryAction": {
       "text": "Email us",
-      "href": "mailto:issaafakattan@gmail.com?subject=I like react landing page!"
+      "href": "mailto:branding4u@gcl.com?subject=I would like to join the project!"
     }
   },
   "product": {
-    "title": "React landing page 2021",
+    "title": "Hello! We create an Erasmus+ project about marketing and self-branding",
     "items": [
       {
-        "title": "A plug n play template",
-        "description": "Just edit the config.json file with details about your company and voila your beautiful state of the art landing page is ready to go live! Remember to also update your assets, add any images you want to show to /assets/images and link them in the config.json",
-        "img": "/assets/images/product1.jpg"
+        "title": "Target audience",
+        "description": "This project created for educators working in youth field for the change of perspectives from the traditionalist approach to viewing oneself and their expertise as a brand and empowering both educators and their adult learners to overcome their fears and 'go out there' and be visible as a service provider on the market thus making the field where they work more live, competitive, fulfilling and enriching.",
+        "img": "/assets/images/teaching.jpeg"
       },
       {
-        "title": "Make it your own!",
-        "description": "Play around with the theme.ts file and configure the color palette to match the branding of your company! If you're feeling wild, maybe change some tailwind css as well!",
+        "title": "Project",
+        "description": "KA2 Cooperation partnership in Youth approved byPolish National Agency",
         "img": "/assets/images/product2.jpg"
       }
     ]
   },
-  "features": {
-    "title": "Latest & greatest ",
-    "subtitle": "All the best technologies out there!",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+  "trainings": {
     "items": [
       {
-        "name": "React.js",
-        "description": "React is a free and open-source front-end JavaScript library for building user interfaces or UI components.",
-        "icon": "/assets/images/react.png"
+        "title": "Poland",
+        "subtitle": "Looking IN",
+        "description": "The main aim of this training course is to enable educators working in the field of adult education to re-evaluate their work, educational practice and define their vision and mission in orderto create the foundation of their personal brand which could be indemand in the market.",
+        "objectives": [
+          {
+            "description": "To get familiar with the concept of personal branding and learn about three stages in personal branding as an approach both at conceptual and at practical level",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To re-evaluate personal meta programmes, fears, limiting beliefs and value base which hampers educators’ professional development and doesn’t let them offer their services to the market",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To define mission and vision and reflect on the importance of those as the foundation of the personal brand",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To practice and to test different methods, tools and techniques which can be relevant for the various groups of adult learners in the topic of personal branding and marketing",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To discuss the strategies and basics of transferring the knowledge to adult learners",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To learn how to create basic presentation tools, reflecting their vision and mission as well as background ( video CVs, reference lists, expert lists, pressportraits)",
+            "icon": "/assets/images/check.png"
+          }
+        ]
       },
       {
-        "name": "Tailwind",
-        "description": "Tailwind CSS is a highly customizable, low-level CSS framework for quickly creating beautiful designs without any annoying opinionated stylesheet nonsense.",
-        "icon": "/assets/images/tailwindcss.svg"
+        "title": "Spain",
+        "subtitle": "Looking OUT",
+        "description": "The main aim of this training course is to introduce educators to the concrete strategies for personal branding online and learn how to use them for self-promotion and marketing in the current situation in the market",
+        "objectives": [
+          {
+            "description": "To deeply analyse the target groups where the educators can offer their services to adult learners and adjust the analysis tools for the work with their groups",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To develop their educational product line(s) which they could offer to the market",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To acquire the basics of financial management and raise awareness about the importance of financial skills nowadays",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To develop the strategy for the development of their personal brand online using the most effective channels and instruments",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To learn efficient tools in addressing these topics when targeting visibility and promotion for their groups",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To acquire the basic skills in copy-writing and creative writing",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To acquire the basics of social media marketing and reflect how Social Media can be used for personal branding",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To learn the basics of creating videos as a important 21st century promotion tool",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To create a 6-month personal branding development strategy which educators will need to implement when they get back home",
+            "icon": "/assets/images/check.png"
+          }
+        ]
       },
       {
-        "name": "Next.js",
-        "description": "Next.js is a framework for server-rendered React applications using Next.js.",
-        "icon": "/assets/images/nextjs.svg"
-      },
-      {
-        "name": "Typescript",
-        "description": "TypeScript is a programming language developed and maintained by Microsoft.",
-        "icon": "/assets/images/ts.png"
+        "title": "Italy",
+        "subtitle": "The Yield",
+        "description": "The main aim of the last training course is to evaluate the whole project, outcomes, assessing personal competences, making future planning.",
+        "objectives": [
+          {
+            "description": "To reflect on the results of the strategy implementation and evaluate the impact of it on the target groups",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To reflect on the outcomes of LTTC",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To assess personal and professional development",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To reframe the methodologies and tools acquired by participants in the previous trainings for the target groups ( e.g. NEETs, disadvantaged etc)",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To work on the creation of publication on personal branding in the field of education",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To plan the follow-up activities and steps for future development as well as develop support mechanisms for educators ( peer and mastermind groups etc)",
+            "icon": "/assets/images/check.png"
+          },
+          {
+            "description": "To reflect on the follow-up ideas and future collaboration in the field of language acquisition and lifelong learning",
+            "icon": "/assets/images/check.png"
+          }
+        ]
       }
     ]
   },
-  "pricing": {
-    "title": "Pricing",
+  "schedule": {
+    "title": "Schedule",
     "items": [
       {
-        "name": "Free",
-        "price": "$0",
-        "priceDetails": "for one user",
-        "features": [
-          "1 user",
-          "Basic Support",
-          "1 GB of storage",
-          "Email support"
-        ]
+        "name": "LOOKING IN",
+        "country": "Poland",
+        "trainings": ["7+2 days", "6 participants / country"]
       },
       {
-        "name": "Pro",
-        "price": "$15",
-        "priceDetails": "per user",
-
-        "features": [
-          "5 users",
-          "Priority Support",
-          "10 GB of storage",
-          "Phone and Email support"
-        ]
+        "name": "LOOKING OUT",
+        "country": "Spain",
+        "trainings": ["7+2 days", "6 participants / country"]
       },
       {
-        "name": "Enterprise",
-        "price": "$29",
-        "priceDetails": "per user",
-        "features": [
-          "50 users",
-          "24/7 Support",
-          "100 GB of storage",
-          "Phone and Email support"
-        ]
+        "name": "THE YIELD",
+        "country": "Italy",
+        "trainings": ["7+2 days", "6 participants / country"]
+      }
+    ]
+  },
+  "partners": {
+    "title": "Partners",
+    "sections": [
+      {
+        "name": "Fundacja Mlodzi dlaEuropy, Poland",
+        "href": "https://www.mlodzidlaeuropy.eu/",
+        "content": ""
+      },
+      {
+        "name": "Check-In, Portugal",
+        "href": "https://checkin.org.pt/",
+        "content": ""
+      },
+      {
+        "name": "Oriel ETS, Italy",
+        "href": "https://www.orielassociation.com/",
+        "content": ""
+      },
+      {
+        "name": "Globers, Spain",
+        "href": "http://globers.net/",
+        "content": ""
       }
     ]
   },
