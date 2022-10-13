@@ -197,26 +197,22 @@
   },
   "partners": {
     "title": "Partners",
-    "sections": [
+    "links": [
       {
         "name": "Fundacja Mlodzi dlaEuropy, Poland",
-        "href": "https://www.mlodzidlaeuropy.eu/",
-        "content": ""
+        "href": "https://www.mlodzidlaeuropy.eu/"
       },
       {
         "name": "Check-In, Portugal",
-        "href": "https://checkin.org.pt/",
-        "content": ""
+        "href": "https://checkin.org.pt/"
       },
       {
         "name": "Oriel ETS, Italy",
-        "href": "https://www.orielassociation.com/",
-        "content": ""
+        "href": "https://www.orielassociation.com/"
       },
       {
         "name": "Globers, Spain",
-        "href": "http://globers.net/",
-        "content": ""
+        "href": "http://globers.net/"
       }
     ]
   },
