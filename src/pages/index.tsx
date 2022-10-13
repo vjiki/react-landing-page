@@ -39,11 +39,13 @@ const App = () => {
       <LazyShow>
         <>
           <Trainings />
-          <Canvas />
         </>
       </LazyShow>
       <LazyShow>
-        <Partners />
+        <>
+          <Canvas />
+          <Partners />
+        </>
       </LazyShow>
       <LazyShow>
         <>
