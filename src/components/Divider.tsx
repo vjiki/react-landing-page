@@ -1,7 +1,7 @@
 import React from 'react';
 
 type DividerProps = {
-  width?: string;
+  width?: string,
 };
 const Divider = ({ width = 'w-64' }: DividerProps) => {
   return (

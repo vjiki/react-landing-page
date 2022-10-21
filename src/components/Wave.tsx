@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { FC } from 'react';
 
 import { useCanvasContext } from '../hooks/useCanvas';

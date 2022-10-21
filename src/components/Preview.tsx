@@ -13,7 +13,7 @@ function handleUnexpectedError(error: unknown) {
 }
 
 type PreviewProps = {
-  url?: string;
+  url?: string,
 };
 
 const Preview = ({ url = 'https://www.google.com/' }: PreviewProps) => {
