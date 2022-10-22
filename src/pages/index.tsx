@@ -7,7 +7,7 @@ import Header from '../components/Header';
 import LazyShow from '../components/LazyShow';
 import MainHero from '../components/MainHero';
 import MainHeroImage from '../components/MainHeroImage';
-// import Partners from '../components/Partners';
+import Partners from '../components/Partners';
 import Product from '../components/Product';
 import Schedule from '../components/Schedular';
 import Trainings from '../components/Trainings';
@@ -41,12 +41,12 @@ const App = () => {
           <Trainings />
         </>
       </LazyShow>
-      {/* <LazyShow>
+      <LazyShow>
         <>
           <Canvas />
           <Partners />
         </>
-      </LazyShow> */}
+      </LazyShow>
       <LazyShow>
         <>
           <Canvas />

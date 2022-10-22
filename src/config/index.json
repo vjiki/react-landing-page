@@ -44,7 +44,7 @@
     },
     "secondaryAction": {
       "text": "Email us",
-      "href": "mailto:branding4u@gcl.com?subject=I would like to join the project!"
+      "href": "mailto:nezzabudka5@gmail.com?subject=I would like to join the project!"
     }
   },
   "product": {
@@ -57,8 +57,8 @@
       },
       {
         "title": "Project",
-        "description": "KA2 Cooperation partnership in Youth approved byPolish National Agency",
-        "img": "/assets/images/product2.jpg"
+        "description": "KA2 Cooperation partnership in Youth approved by Polish National Agency",
+        "img": "/assets/images/partnerships.png"
       }
     ]
   },
@@ -200,19 +200,27 @@
     "links": [
       {
         "name": "Fundacja Mlodzi dlaEuropy, Poland",
-        "href": "https://www.mlodzidlaeuropy.eu/"
+        "href": "https://www.mlodzidlaeuropy.eu/",
+        "image": "/assets/images/fundacja.jpg",
+        "description": "Fundacja Młodzi dla Europy zajmuje się edukacją młodzieży, dorosłych i dzieci, ze szczególnym uwzględnieniem metod nastawionych na naukę doświadczalną, podejście holistyczne i naukę przez działanie."
       },
       {
         "name": "Check-In, Portugal",
-        "href": "https://checkin.org.pt/"
+        "href": "https://checkin.org.pt/",
+        "image": "/assets/images/checkin.png",
+        "description": "O nível de entusiasmo extremo que a equipa da Check-IN me deu sempre que me preparava para uma nova aventura. Agradecida por ter conhecido a melhor ONG do país no timing certo da minha vida e trazê-la comigo, na vida, na pessoa que sou hoje"
       },
       {
         "name": "Oriel ETS, Italy",
-        "href": "https://www.orielassociation.com/"
+        "href": "https://www.orielassociation.com/",
+        "image": "/assets/images/oriel.jpg",
+        "description": "Find us on social media"
       },
       {
         "name": "Globers, Spain",
-        "href": "http://globers.net/"
+        "href": "http://globers.net/",
+        "image": "/assets/images/globers.png",
+        "description": "Globers is a cultural association from Roda de Berá, Spain that works within the European framework - Erasmus +, ESC. Our organization promotes concepts of personal development, international inclusion and the importance of volunteering."
       }
     ]
   },

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import axios, { AxiosError } from 'axios';
 
-import { IPreviewResponse } from '../model/preview/response';
+import { IPreviewResponse } from '../../model/preview/response';
 
 function handleAxiosError(error: AxiosError<any, any>) {
   console.log(error);
