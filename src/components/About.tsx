@@ -78,12 +78,17 @@ const About = () => {
           </a>
         </div>
         <div className="flex items-center mt-6">
-          <p className="mt-6 text-xs lg:text-sm leading-none text-gray-900 dark:text-gray-50">
-            &copy; {new Date().getFullYear()} designed by{' '}
-            <a href="https://github.com/issaafalkattan" rel="nofollow">
-              Issaaf Kattan
-            </a>
-          </p>
+          <div className="mt-6 text-xs lg:text-center leading-none text-gray-900 dark:text-gray-50">
+            <p>
+              &copy; {new Date().getFullYear()} designed by{' '}
+              <a href="https://github.com/vjiki" rel="nofollow">
+                vjiki
+              </a>
+            </p>
+            <p className="mt-3">Duration – 20 months</p>
+            <p className="mt-3">01/02/2022 - 30/09/2023</p>
+            <p className="mt-3">2021-1-PL01-KA220-YOU-000028870</p>
+          </div>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ const PartnersPreview = () => {
   const { title, links } = partners;
 
   return (
-    <div id="partners" className={`py-12 bg-background`}>
+    <div id="partnersPreview" className={`py-12 bg-background`}>
       <dl className="space-y-10 md:space-y-0 md:grid md:gap-x-8 md:gap-y-10">
         <div className="flex flex-col items-center justify-center">
           <h1

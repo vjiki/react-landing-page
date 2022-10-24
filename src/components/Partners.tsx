@@ -11,7 +11,7 @@ const Partners = () => {
       <div className={`container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl m-8`}>
         <div className="flex flex-col items-center justify-center">
           <h1
-            className={`w-full my-2 text-5xl font-bold leading-tight text-center text-primary`}
+            className={`w-full my-2 text-5xl font-bold leading-tight text-center text-gray-900`}
           >
             {title}
           </h1>

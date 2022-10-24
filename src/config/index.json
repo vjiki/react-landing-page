@@ -1,7 +1,8 @@
 {
   "company": {
     "name": "Erasmus+ project",
-    "logo": "/assets/images/bigpngegg.png"
+    "logo": "/assets/images/bigpngegg.png",
+    "href": "/"
   },
   "navigation": [
     {
@@ -9,24 +10,22 @@
       "href": "product"
     },
     {
-      "name": "Schedule",
-      "href": "schedule"
-    },
-    {
       "name": "Trainings",
       "href": "trainings"
-    },
-    {
-      "name": "Partners",
-      "href": "partners"
-    },
+    }
+  ],
+  "navigationLinks": [
     {
       "name": "Blog",
-      "href": "about"
+      "href": "blog"
     },
     {
-      "name": "About",
-      "href": "about"
+      "name": "FAQ",
+      "href": "faq"
+    },
+    {
+      "name": "Contacts",
+      "href": "contacts"
     }
   ],
   "callToAction": {
@@ -40,7 +39,7 @@
     "img": "/assets/images/team_working.jpg",
     "primaryAction": {
       "text": "Get started",
-      "href": "#"
+      "href": "/contacts"
     },
     "secondaryAction": {
       "text": "Email us",
@@ -63,6 +62,7 @@
     ]
   },
   "trainings": {
+    "icon": "/assets/images/check.png",
     "items": [
       {
         "title": "Poland",
@@ -70,28 +70,22 @@
         "description": "The main aim of this training course is to enable educators working in the field of adult education to re-evaluate their work, educational practice and define their vision and mission in orderto create the foundation of their personal brand which could be indemand in the market.",
         "objectives": [
           {
-            "description": "To get familiar with the concept of personal branding and learn about three stages in personal branding as an approach both at conceptual and at practical level",
-            "icon": "/assets/images/check.png"
+            "description": "To get familiar with the concept of personal branding and learn about three stages in personal branding as an approach both at conceptual and at practical level"
           },
           {
-            "description": "To re-evaluate personal meta programmes, fears, limiting beliefs and value base which hampers educators’ professional development and doesn’t let them offer their services to the market",
-            "icon": "/assets/images/check.png"
+            "description": "To re-evaluate personal meta programmes, fears, limiting beliefs and value base which hampers educators’ professional development and doesn’t let them offer their services to the market"
           },
           {
-            "description": "To define mission and vision and reflect on the importance of those as the foundation of the personal brand",
-            "icon": "/assets/images/check.png"
+            "description": "To define mission and vision and reflect on the importance of those as the foundation of the personal brand"
           },
           {
-            "description": "To practice and to test different methods, tools and techniques which can be relevant for the various groups of adult learners in the topic of personal branding and marketing",
-            "icon": "/assets/images/check.png"
+            "description": "To practice and to test different methods, tools and techniques which can be relevant for the various groups of adult learners in the topic of personal branding and marketing"
           },
           {
-            "description": "To discuss the strategies and basics of transferring the knowledge to adult learners",
-            "icon": "/assets/images/check.png"
+            "description": "To discuss the strategies and basics of transferring the knowledge to adult learners"
           },
           {
-            "description": "To learn how to create basic presentation tools, reflecting their vision and mission as well as background ( video CVs, reference lists, expert lists, pressportraits)",
-            "icon": "/assets/images/check.png"
+            "description": "To learn how to create basic presentation tools, reflecting their vision and mission as well as background ( video CVs, reference lists, expert lists, pressportraits)"
           }
         ]
       },
@@ -101,40 +95,31 @@
         "description": "The main aim of this training course is to introduce educators to the concrete strategies for personal branding online and learn how to use them for self-promotion and marketing in the current situation in the market",
         "objectives": [
           {
-            "description": "To deeply analyse the target groups where the educators can offer their services to adult learners and adjust the analysis tools for the work with their groups",
-            "icon": "/assets/images/check.png"
+            "description": "To deeply analyse the target groups where the educators can offer their services to adult learners and adjust the analysis tools for the work with their groups"
           },
           {
-            "description": "To develop their educational product line(s) which they could offer to the market",
-            "icon": "/assets/images/check.png"
+            "description": "To develop their educational product line(s) which they could offer to the market"
           },
           {
-            "description": "To acquire the basics of financial management and raise awareness about the importance of financial skills nowadays",
-            "icon": "/assets/images/check.png"
+            "description": "To acquire the basics of financial management and raise awareness about the importance of financial skills nowadays"
           },
           {
-            "description": "To develop the strategy for the development of their personal brand online using the most effective channels and instruments",
-            "icon": "/assets/images/check.png"
+            "description": "To develop the strategy for the development of their personal brand online using the most effective channels and instruments"
           },
           {
-            "description": "To learn efficient tools in addressing these topics when targeting visibility and promotion for their groups",
-            "icon": "/assets/images/check.png"
+            "description": "To learn efficient tools in addressing these topics when targeting visibility and promotion for their groups"
           },
           {
-            "description": "To acquire the basic skills in copy-writing and creative writing",
-            "icon": "/assets/images/check.png"
+            "description": "To acquire the basic skills in copy-writing and creative writing"
           },
           {
-            "description": "To acquire the basics of social media marketing and reflect how Social Media can be used for personal branding",
-            "icon": "/assets/images/check.png"
+            "description": "To acquire the basics of social media marketing and reflect how Social Media can be used for personal branding"
           },
           {
-            "description": "To learn the basics of creating videos as a important 21st century promotion tool",
-            "icon": "/assets/images/check.png"
+            "description": "To learn the basics of creating videos as a important 21st century promotion tool"
           },
           {
-            "description": "To create a 6-month personal branding development strategy which educators will need to implement when they get back home",
-            "icon": "/assets/images/check.png"
+            "description": "To create a 6-month personal branding development strategy which educators will need to implement when they get back home"
           }
         ]
       },
@@ -144,32 +129,25 @@
         "description": "The main aim of the last training course is to evaluate the whole project, outcomes, assessing personal competences, making future planning.",
         "objectives": [
           {
-            "description": "To reflect on the results of the strategy implementation and evaluate the impact of it on the target groups",
-            "icon": "/assets/images/check.png"
+            "description": "To reflect on the results of the strategy implementation and evaluate the impact of it on the target groups"
           },
           {
-            "description": "To reflect on the outcomes of LTTC",
-            "icon": "/assets/images/check.png"
+            "description": "To reflect on the outcomes of LTTC"
           },
           {
-            "description": "To assess personal and professional development",
-            "icon": "/assets/images/check.png"
+            "description": "To assess personal and professional development"
           },
           {
-            "description": "To reframe the methodologies and tools acquired by participants in the previous trainings for the target groups ( e.g. NEETs, disadvantaged etc)",
-            "icon": "/assets/images/check.png"
+            "description": "To reframe the methodologies and tools acquired by participants in the previous trainings for the target groups ( e.g. NEETs, disadvantaged etc)"
           },
           {
-            "description": "To work on the creation of publication on personal branding in the field of education",
-            "icon": "/assets/images/check.png"
+            "description": "To work on the creation of publication on personal branding in the field of education"
           },
           {
-            "description": "To plan the follow-up activities and steps for future development as well as develop support mechanisms for educators ( peer and mastermind groups etc)",
-            "icon": "/assets/images/check.png"
+            "description": "To plan the follow-up activities and steps for future development as well as develop support mechanisms for educators ( peer and mastermind groups etc)"
           },
           {
-            "description": "To reflect on the follow-up ideas and future collaboration in the field of language acquisition and lifelong learning",
-            "icon": "/assets/images/check.png"
+            "description": "To reflect on the follow-up ideas and future collaboration in the field of language acquisition and lifelong learning"
           }
         ]
       }
@@ -224,6 +202,18 @@
       }
     ]
   },
+  "objectives": {
+    "title": "Objectives",
+    "items": [
+      "To learn about the opportunities of personal branding and its effect on employability and recruitment",
+      "To reevaluate the limiting beliefs among educators which suppress the professional development of educators and get to know how to create your personal branding strategy",
+      "To provide participants with practical tools helpful in developing marketing and visibility skills of diverse groups of learners",
+      "To contribute to the development of the entrepreneurial mindset of educators and their target groups",
+      "To facilitate the building of long-lasting partnerships among participants and NGOs for future collaboration",
+      "To learn about and practice in using various digital communication channels for the development of personal branding (FaceBook, Youtube, Instagram,LinkedIn etc)",
+      "To exchange best practices in relation to personal branding in the field of youth work"
+    ]
+  },
   "about": {
     "sections": [
       {
@@ -248,9 +238,9 @@
       }
     ],
     "socialMedia": {
-      "github": "https://github.com/issaafalkattan",
-      "twitter": "https://twitter.com/issaafkattan",
-      "linkedin": "https://www.linkedin.com/in/issaaf-kattan/"
+      "github": "https://github.com/vjiki",
+      "twitter": "https://twitter.com/",
+      "linkedin": "https://www.linkedin.com/in/"
     }
   }
 }

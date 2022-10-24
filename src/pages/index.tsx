@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import LazyShow from '../components/LazyShow';
 import MainHero from '../components/MainHero';
 import MainHeroImage from '../components/MainHeroImage';
+import Objectives from '../components/Objectives';
 import Partners from '../components/Partners';
 import Product from '../components/Product';
 import Schedule from '../components/Schedular';
@@ -34,7 +35,16 @@ const App = () => {
         </>
       </LazyShow>
       <LazyShow>
-        <Schedule />
+        <>
+          <Schedule />
+          <Canvas />
+        </>
+      </LazyShow>
+      <LazyShow>
+        <>
+          <Objectives />
+          <Canvas />
+        </>
       </LazyShow>
       <LazyShow>
         <>

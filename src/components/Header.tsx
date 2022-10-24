@@ -7,9 +7,9 @@ import { Link } from 'react-scroll';
 import config from '../config/index.json';
 
 const Menu = () => {
-  const { navigation, callToAction } = config;
+  const { navigation, navigationLinks, callToAction } = config;
   const { company } = config;
-  const { name: companyName, logo } = company;
+  const { name: companyName, logo, href: companyHref } = company;
 
   return (
     <>
@@ -31,7 +31,7 @@ const Menu = () => {
           >
             <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
               <div className="flex items-center justify-between w-full md:w-auto">
-                <a href="#">
+                <a href={companyHref}>
                   <span className="sr-only">{companyName}</span>
                   <img alt="logo" className="h-20 w-auto sm:h-20" src={logo} />
                 </a>
@@ -59,12 +59,15 @@ const Menu = () => {
                   {item.name}
                 </Link>
               ))}
-              <a
-                href="#"
-                className={`font-medium text-primary hover:text-secondary`}
-              >
-                Call
-              </a>
+              {navigationLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`font-medium text-gray-500 hover:text-gray-900y`}
+                >
+                  {link.name}
+                </a>
+              ))}
             </div>
           </nav>
         </div>
@@ -111,6 +114,15 @@ const Menu = () => {
                   >
                     {item.name}
                   </Link>
+                ))}
+                {navigationLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-5"
+                  >
+                    {link.name}
+                  </a>
                 ))}
               </div>
               <a

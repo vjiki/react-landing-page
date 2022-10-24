@@ -29,6 +29,17 @@ ENGLISH VERSION
 https://www.orielassociation.com/
 
 
+list-style-image:url('/assets/images/check.png')
+
+
+              <Link
+                href="contacts"
+                className="font-medium text-gray-500 hover:text-gray-900"
+                passHref
+              >
+                Contacts
+              </Link>
+
 <img class="h-32 w-full object-cover sm:h-72 md:h-96 lg:w-1/2 lg:h-1/2" alt="preview image" src="https://static.wixstatic.com/media/8e8a8c_2ba99a385c72458b9ff231cb648430c1~mv2.jpg/v1/fill/w_400,h_400,al_c/8e8a8c_2ba99a385c72458b9ff231cb648430c1~mv2.jpg">
 
 <a aria-label="twitter" href="https://twitter.com/issaafkattan" target="_blank" rel="noreferrer"></a>
