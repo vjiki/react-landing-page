@@ -1,17 +1,17 @@
 import React from 'react';
 
-import About from '../components/About';
-import Analytics from '../components/Analytics';
-import Canvas from '../components/Canvas';
-import Header from '../components/Header';
-import LazyShow from '../components/LazyShow';
-import MainHero from '../components/MainHero';
-import MainHeroImage from '../components/MainHeroImage';
-import Objectives from '../components/Objectives';
-import Partners from '../components/Partners';
-import Product from '../components/Product';
-import Schedule from '../components/Schedular';
-import Trainings from '../components/Trainings';
+import About from '../components/trainings/About';
+import Analytics from '../components/trainings/Analytics';
+import Canvas from '../components/trainings/Canvas';
+import Header from '../components/trainings/Header';
+import LazyShow from '../components/trainings/LazyShow';
+import MainHero from '../components/trainings/MainHero';
+import MainHeroImage from '../components/trainings/MainHeroImage';
+import Objectives from '../components/trainings/Objectives';
+import Partners from '../components/trainings/Partners';
+import Product from '../components/trainings/Product';
+import Schedule from '../components/trainings/Schedular';
+import Trainings from '../components/trainings/Trainings';
 
 const App = () => {
   return (

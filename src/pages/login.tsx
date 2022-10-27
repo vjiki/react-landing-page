@@ -1,8 +1,8 @@
 import React from 'react';
 
+import Login from '../components/blog/login/Login';
 import About from '../components/trainings/About';
 import Canvas from '../components/trainings/Canvas';
-import Contacts from '../components/trainings/Contacts';
 import Header from '../components/trainings/Header';
 import LazyShow from '../components/trainings/LazyShow';
 
@@ -20,7 +20,7 @@ const contacts = () => {
       </div>
       <LazyShow>
         <>
-          <Contacts />
+          <Login />
           <Canvas />
         </>
       </LazyShow>

@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { FC } from 'react';
 
-import { useCanvasContext } from '../hooks/useCanvas';
-import useResponsiveSize from '../hooks/useResponsiveSize';
-import WaveObj from '../utils/wave';
+import { useCanvasContext } from '../../hooks/useCanvas';
+import useResponsiveSize from '../../hooks/useResponsiveSize';
+import WaveObj from '../../utils/wave';
 
 const Wave: FC = () => {
   const { context } = useCanvasContext();
