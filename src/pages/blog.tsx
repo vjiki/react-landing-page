@@ -1,12 +1,13 @@
 import React from 'react';
 
-import Login from '../components/blog/login/Login';
+import { BlogHeader } from '../components/blog/BlogHeader/BlogHeader';
+import { Home } from '../components/blog/Home';
 import About from '../components/trainings/About';
 import Canvas from '../components/trainings/Canvas';
 import Header from '../components/trainings/Header';
 import LazyShow from '../components/trainings/LazyShow';
 
-const contacts = () => {
+const blog = () => {
   return (
     <div className={`bg-background grid gap-y-4 overflow-hidden`}>
       <div className={`relative bg-background`}>
@@ -18,12 +19,11 @@ const contacts = () => {
           </div>
         </div>
       </div>
-      <LazyShow>
-        <>
-          <Login />
-          <Canvas />
-        </>
-      </LazyShow>
+      <BlogHeader />
+      <>
+        <Home />
+        <Canvas />
+      </>
       <LazyShow>
         <>
           <About />
@@ -33,4 +33,4 @@ const contacts = () => {
   );
 };
 
-export default contacts;
+export default blog;
