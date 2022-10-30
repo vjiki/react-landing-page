@@ -1,3 +1,4 @@
+/* eslint-disable unused-imports/no-unused-vars */
 import React from 'react';
 
 import Button from '@mui/material/Button';
@@ -6,6 +7,8 @@ import TextField from '@mui/material/TextField';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+// import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 // import { useSelector } from 'react-redux';
 // import { useNavigate, Navigate, useParams } from 'react-router-dom';
@@ -19,21 +22,26 @@ import { useAppSelector } from '../../../redux/hooks';
 import { selectIsAuth } from '../../../redux/slices/auth';
 import styles from './AddPost.module.scss';
 
+const DraftEditor = dynamic(() => import('react-draft-wysiwyg'), {
+  ssr: false,
+});
+
 export const AddPost = () => {
   const router = useRouter();
   // const { id } = useParams();
   // const navigate = useNavigate();
   const isAuth = useAppSelector(selectIsAuth);
   // const [isLoading, setLoading] = React.useState(false);
-  const [text, setText] = React.useState('');
+  // const [text, setText] = React.useState('');
+  const [text] = React.useState('');
   const [title, setTitle] = React.useState('');
   const [tags, setTags] = React.useState('');
   const [imageUrl, setImageUrl] = React.useState('');
   const inputFileRef = React.useRef<any>(null);
 
-  const SimpleMdeEditor = dynamic(() => import('react-simplemde-editor'), {
-    ssr: false,
-  });
+  // const SimpleMdeEditor = dynamic(() => import('react-simplemde-editor'), {
+  //   ssr: false,
+  // });
 
   // const isEditing = Boolean(id);
 
@@ -63,9 +71,9 @@ export const AddPost = () => {
     setImageUrl('');
   };
 
-  const onChange = React.useCallback((value) => {
-    setText(value);
-  }, []);
+  // const onChange = React.useCallback((value) => {
+  //   setText(value);
+  // }, []);
 
   const onSubmit = async () => {
     try {
@@ -111,20 +119,20 @@ export const AddPost = () => {
     // }
   }, []);
 
-  const options = React.useMemo(() => {
-    return {
-      spellChecker: false,
-      maxHeight: '400px',
-      autofocus: true,
-      placeholder: 'Введите текст...',
-      status: false,
-      autosave: {
-        enabled: true,
-        uniqueId: 'editpost',
-        delay: 1000,
-      },
-    };
-  }, []);
+  // const options = React.useMemo(() => {
+  //   return {
+  //     spellChecker: false,
+  //     maxHeight: '400px',
+  //     autofocus: true,
+  //     placeholder: 'Введите текст...',
+  //     status: false,
+  //     autosave: {
+  //       enabled: true,
+  //       uniqueId: 'editpost',
+  //       delay: 1000,
+  //     },
+  //   };
+  // }, []);
 
   if (typeof window !== 'undefined') {
     if (!window.localStorage.getItem('token') && !isAuth) {
@@ -186,7 +194,7 @@ export const AddPost = () => {
           fullWidth
           autoFocus
         />
-        <>
+        {/* <>
           <SimpleMdeEditor
             // value={post.content}
             // onChange={value => setPost({ ...post, content: value })}
@@ -195,7 +203,8 @@ export const AddPost = () => {
             onChange={onChange}
             options={options}
           />
-        </>
+        </> */}
+        <DraftEditor />
         <div className={styles.buttons}>
           <Button onClick={onSubmit} size="large" variant="contained">
             Publish
