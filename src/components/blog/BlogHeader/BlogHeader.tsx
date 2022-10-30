@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from '@mui/material/Button';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 // import { Link } from 'react-router-dom';
 
@@ -27,9 +27,9 @@ export const BlogHeader = () => {
           <div className={styles.buttons}>
             {isAuth ? (
               <>
-                <Link href="/blog/addpost">
+                {/* <Link href="/blog/addpost">
                   <Button variant="contained">Написать статью</Button>
-                </Link>
+                </Link> */}
                 <Button
                   onClick={onClickLogout}
                   variant="contained"
@@ -40,12 +40,12 @@ export const BlogHeader = () => {
               </>
             ) : (
               <>
-                <Link href="/blog/login">
+                {/* <Link href="/blog/login">
                   <Button variant="outlined">Войти</Button>
                 </Link>
                 <Link href="/blog/register">
                   <Button variant="contained">Создать аккаунт</Button>
-                </Link>
+                </Link> */}
               </>
             )}
           </div>

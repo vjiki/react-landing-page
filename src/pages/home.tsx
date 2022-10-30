@@ -13,7 +13,7 @@ import Product from '../components/trainings/Product';
 import Schedule from '../components/trainings/Schedular';
 import Trainings from '../components/trainings/Trainings';
 
-const App = () => {
+const Home = () => {
   return (
     <div className={`bg-background grid gap-y-16 overflow-hidden`}>
       <div className={`relative bg-background`}>
@@ -68,4 +68,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;

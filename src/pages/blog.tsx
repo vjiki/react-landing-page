@@ -7,7 +7,7 @@ import Canvas from '../components/trainings/Canvas';
 import Header from '../components/trainings/Header';
 import LazyShow from '../components/trainings/LazyShow';
 
-const blog = () => {
+const Blog = () => {
   return (
     <div className={`bg-background grid gap-y-4 overflow-hidden`}>
       <div className={`relative bg-background`}>
@@ -33,4 +33,4 @@ const blog = () => {
   );
 };
 
-export default blog;
+export default Blog;

@@ -3,7 +3,7 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import ReactMarkdown from "react-markdown";
 
 import axios from '../../axios';
@@ -26,19 +26,19 @@ type PostProps = {
 
 export const FullPost = () => {
   // const [isLoading] = React.useState(true);
-  const router = useRouter();
-  const { id } = router.query;
+  // const router = useRouter();
+  // const { id } = router.query;
 
   const [data, setData] = React.useState<PostProps>();
   const [isLoading, setLoading] = React.useState(true);
   // const { id } = useParams();
 
   React.useEffect(() => {
-    if(!router.isReady) return;
+    // if(!router.isReady) return;
 
-    console.log(id);
+    // console.log(id);
     axios
-      .get(`/posts/${id}`)
+      .get(`/posts/`) // ${id}
       .then((res) => {
         setData(res.data);
         setLoading(false);
@@ -47,7 +47,9 @@ export const FullPost = () => {
         console.warn(err);
         alert('Failed to get post');
       });
-  }, [router.isReady]);
+    }, []);
+
+  // }, [router.isReady]);
 
   if (isLoading) {
     return <Post isLoading={isLoading} isFullPost />;

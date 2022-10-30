@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 import config from '../../config/index.json';
 
@@ -47,6 +48,7 @@ const Menu = () => {
             </div>
             <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
               {navigation.map((item) => (
+                // <a key={item.name}></a>
                 // <Link2
                 //   spy={true}
                 //   active="active"
@@ -58,19 +60,26 @@ const Menu = () => {
                 // >
                 //   {item.name}
                 // </Link2>
-                <Link key={item.name} href={item.href} scroll>
-                  <a className="font-medium text-gray-500 hover:text-gray-900">
-                    {item.name}
-                  </a>
+                // <Link key={item.name} href={item.href} scroll>
+                //   <a className="font-medium text-gray-500 hover:text-gray-900">
+                //     {item.name}
+                //   </a>
+                // </Link>
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="font-medium text-gray-500 hover:text-gray-900"
+                >
+                  {item.name}
                 </Link>
               ))}
               {navigationLinks.map((link) => (
-                <Link key={link.name} href={link.href}>
-                  <a
-                    className={`font-medium text-gray-500 hover:text-gray-900`}
-                  >
-                    {link.name}
-                  </a>
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`font-medium text-gray-500 hover:text-gray-900`}
+                >
+                  {link.name}
                 </Link>
               ))}
             </div>
@@ -119,27 +128,38 @@ const Menu = () => {
                   // >
                   //   {item.name}
                   // </Link2>
-                  <Link key={item.name} href={item.href} scroll>
-                    <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-                      {item.name}
-                    </a>
+                  // <Link key={item.name} href={item.href} scroll>
+                  //   <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+                  //     {item.name}
+                  //   </a>
+                  // </Link>
+                  // <a key={item.name}></a>
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                  >
+                    {item.name}
                   </Link>
                 ))}
                 {navigationLinks.map((link) => (
-                  <Link key={link.name} href={link.href}>
-                    <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-5">
-                      {link.name}
-                    </a>
-                  </Link>
+                  <a key={link.name}></a>
+
+                  // <Link key={link.name} href={link.href}>
+                  //   <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-5">
+                  //     {link.name}
+                  //   </a>
+                  // </Link>
                 ))}
               </div>
-              <Link key={callToAction.text} href={callToAction.href}>
+              {/* <Link key={callToAction.text} href={callToAction.href}>
                 <a
                   className={`block w-full px-5 py-3 text-center font-medium text-primary bg-gray-50 hover:bg-gray-100`}
                 >
                   {callToAction.text}
                 </a>
-              </Link>
+              </Link> */}
+              <a key={callToAction.text}></a>
             </div>
           </Popover.Panel>
         </Transition>

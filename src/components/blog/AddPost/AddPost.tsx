@@ -4,9 +4,9 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+// import dynamic from 'next/dynamic';
+// import Link from 'next/link';
+// import { useRouter } from 'next/router';
 // import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
@@ -22,12 +22,12 @@ import { useAppSelector } from '../../../redux/hooks';
 import { selectIsAuth } from '../../../redux/slices/auth';
 import styles from './AddPost.module.scss';
 
-const DraftEditor = dynamic(() => import('react-draft-wysiwyg'), {
-  ssr: false,
-});
+// const DraftEditor = dynamic(() => import('react-draft-wysiwyg'), {
+//   ssr: false,
+// });
 
 export const AddPost = () => {
-  const router = useRouter();
+  // const router = useRouter();
   // const { id } = useParams();
   // const navigate = useNavigate();
   const isAuth = useAppSelector(selectIsAuth);
@@ -95,7 +95,7 @@ export const AddPost = () => {
       // const _id = isEditing ? id : data._id;
 
       // navigate(`/posts/${_id}`);
-      router.push('/blog');
+      // router.push('/blog');
     } catch (err) {
       console.warn(err);
       alert('failed to create post');
@@ -136,7 +136,7 @@ export const AddPost = () => {
 
   if (typeof window !== 'undefined') {
     if (!window.localStorage.getItem('token') && !isAuth) {
-      router.push('/blog');
+      // router.push('/blog');
       // return <Navigate to="/" />;
     }
   }
@@ -204,15 +204,15 @@ export const AddPost = () => {
             options={options}
           />
         </> */}
-        <DraftEditor />
+        {/* <DraftEditor /> */}
         <div className={styles.buttons}>
           <Button onClick={onSubmit} size="large" variant="contained">
             Publish
             {/* {isEditing ? 'Save' : 'Publish'} */}
           </Button>
-          <Link href="/blog">
+          {/* <Link href="/blog">
             <Button size="large">Отмена</Button>
-          </Link>
+          </Link> */}
         </div>
       </Paper>
     </div>

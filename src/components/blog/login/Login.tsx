@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
@@ -16,7 +16,7 @@ import styles from './Login.module.scss';
 const Login = () => {
   const isAuth = useAppSelector(selectIsAuth);
   const dispatch = useAppDispatch();
-  const router = useRouter();
+  // const router = useRouter();
 
   const {
     register,
@@ -45,7 +45,7 @@ const Login = () => {
   if (isAuth) {
     // return <Navigate to="/" />;
     // todo
-    router.push('/blog');
+    // router.push('/blog');
   }
 
   return (

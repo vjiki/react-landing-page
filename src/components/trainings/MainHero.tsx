@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Link from 'next/link';
+// import Link from 'next/link';
 
 import config from '../../config/index.json';
 
@@ -20,7 +20,7 @@ const MainHero = () => {
         </p>
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
           <div className="rounded-md shadow">
-            <Link
+            {/* <Link
               key={mainHero.primaryAction.text}
               href={mainHero.primaryAction.href}
             >
@@ -29,7 +29,7 @@ const MainHero = () => {
               >
                 {mainHero.primaryAction.text}
               </a>
-            </Link>
+            </Link> */}
           </div>
           <div className="mt-3 sm:mt-0 sm:ml-3">
             <a

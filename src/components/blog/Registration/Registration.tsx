@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { Navigate } from 'react-router-dom';
@@ -23,7 +23,7 @@ export const Registration = () => {
 
   const isAuth = useAppSelector(selectIsAuth);
   const dispatch = useAppDispatch();
-  const router = useRouter();
+  // const router = useRouter();
 
   const {
     register,
@@ -54,7 +54,7 @@ export const Registration = () => {
 
   if (isAuth) {
     // return <Navigate to="/" />;
-    router.push('/blog');
+    // router.push('/blog');
   }
 
   return (

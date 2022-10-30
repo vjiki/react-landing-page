@@ -4,11 +4,10 @@ import React from 'react';
 
 import CommentIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import DeleteIcon from '@mui/icons-material/Clear';
-import EditIcon from '@mui/icons-material/Edit';
 import EyeIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import IconButton from '@mui/material/IconButton';
 import clsx from 'clsx';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 // import { useDispatch } from 'react-redux';
 // import { Link } from 'react-router-dom';
@@ -67,11 +66,11 @@ export const Post = ({
     <div className={clsx(styles.root, isFullPost ? styles.rootFull : '')}>
       {isEditable && (
         <div className={styles.editButtons}>
-          <Link href={`/blog/posts/${id}/edit`}>
+          {/* <Link href={`/blog/posts/${id}/edit`}>
             <IconButton color="primary">
               <EditIcon />
             </IconButton>
-          </Link>
+          </Link> */}
           <IconButton onClick={onClickRemove} color="secondary">
             <DeleteIcon />
           </IconButton>
@@ -97,11 +96,10 @@ export const Post = ({
         <UserInfo {...user} additionalText={createdAt} />
         <div className={styles.indention}>
           <h2 className={clsx(styles.title)}>
-            {isFullPost ? (
-              title
-            ) : (
-              <Link href={`/blog/posts/${id}`}>{title}</Link>
-            )}
+            {isFullPost
+              ? title
+              : // <Link href={`/blog/posts/${id}`}>{title}</Link>
+                title}
           </h2>
           <ul className={styles.tags}>
             {tags.map((name: any) => (
