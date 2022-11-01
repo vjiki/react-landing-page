@@ -1,49 +1,33 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable unused-imports/no-unused-vars */
 import React from 'react';
 
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
-// import dynamic from 'next/dynamic';
-// import Link from 'next/link';
-// import { useRouter } from 'next/router';
-// import { Editor } from 'react-draft-wysiwyg';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { Link, useNavigate, Navigate, useParams } from 'react-router-dom';
+import SimpleMDE from 'react-simplemde-editor';
 
 // import { useSelector } from 'react-redux';
-// import { useNavigate, Navigate, useParams } from 'react-router-dom';
-
-// import { useAppSelector } from '../../../redux/hooks';
-// import 'easymde/dist/easymde.min.css';
-// import { selectIsAuth } from '../../../redux/slices/auth';
 import axios from '../../../axios';
 import 'easymde/dist/easymde.min.css';
 import { useAppSelector } from '../../../redux/hooks';
 import { selectIsAuth } from '../../../redux/slices/auth';
 import styles from './AddPost.module.scss';
 
-// const DraftEditor = dynamic(() => import('react-draft-wysiwyg'), {
-//   ssr: false,
-// });
-
 export const AddPost = () => {
-  // const router = useRouter();
-  // const { id } = useParams();
-  // const navigate = useNavigate();
+  const { id } = useParams();
+  const navigate = useNavigate();
   const isAuth = useAppSelector(selectIsAuth);
-  // const [isLoading, setLoading] = React.useState(false);
-  // const [text, setText] = React.useState('');
-  const [text] = React.useState('');
+  const [isLoading, setLoading] = React.useState(false);
+  const [text, setText] = React.useState('');
   const [title, setTitle] = React.useState('');
   const [tags, setTags] = React.useState('');
   const [imageUrl, setImageUrl] = React.useState('');
   const inputFileRef = React.useRef<any>(null);
 
-  // const SimpleMdeEditor = dynamic(() => import('react-simplemde-editor'), {
-  //   ssr: false,
-  // });
-
-  // const isEditing = Boolean(id);
+  const isEditing = Boolean(id);
 
   const handleChangeFile = async (event: any) => {
     try {
@@ -54,11 +38,15 @@ export const AddPost = () => {
       // needs to add authorization to this request
       if (typeof window !== 'undefined') {
         const token = window.localStorage.getItem('token');
-        const { data } = await axios.post('/upload', formData, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const { data } = await axios.post(
+          '/upload',
+          formData
+          // , {
+          //   headers: {
+          //     Authorization: `Bearer ${token}`,
+          //   },
+          // }
+        );
         setImageUrl(data.url);
       }
     } catch (err) {
@@ -71,13 +59,13 @@ export const AddPost = () => {
     setImageUrl('');
   };
 
-  // const onChange = React.useCallback((value) => {
-  //   setText(value);
-  // }, []);
+  const onChange = React.useCallback((value) => {
+    setText(value);
+  }, []);
 
   const onSubmit = async () => {
     try {
-      // setLoading(true);
+      setLoading(true);
 
       const fields = {
         title,
@@ -86,16 +74,15 @@ export const AddPost = () => {
         text,
       };
 
-      await axios.post('/posts', fields);
+      // await axios.post('/posts', fields);
 
-      // const { data } = isEditing
-      //   ? await axios.patch(`/posts/${id}`, fields)
-      //   : await axios.post('/posts', fields);
+      const { data } = isEditing
+        ? await axios.patch(`/posts/${id}`, fields)
+        : await axios.post('/posts', fields);
 
-      // const _id = isEditing ? id : data._id;
+      const _id = isEditing ? id : data._id;
 
-      // navigate(`/posts/${_id}`);
-      // router.push('/blog');
+      navigate(`/blog/posts/${_id}`);
     } catch (err) {
       console.warn(err);
       alert('failed to create post');
@@ -103,41 +90,40 @@ export const AddPost = () => {
   };
 
   React.useEffect(() => {
-    // if (id) {
-    //   axios
-    //     .get(`/posts/${id}`)
-    //     .then(({ data }) => {
-    //       setTitle(data.title);
-    //       setText(data.text);
-    //       setImageUrl(data.imageUrl);
-    //       setTags(data.tags.join(','));
-    //     })
-    //     .catch((err) => {
-    //       console.warn(err);
-    //       alert('failed to get post for update');
-    //     });
-    // }
+    if (id) {
+      axios
+        .get(`/posts/${id}`)
+        .then(({ data }) => {
+          setTitle(data.title);
+          setText(data.text);
+          setImageUrl(data.imageUrl);
+          setTags(data.tags.join(','));
+        })
+        .catch((err) => {
+          console.warn(err);
+          alert('failed to get post for update');
+        });
+    }
   }, []);
 
-  // const options = React.useMemo(() => {
-  //   return {
-  //     spellChecker: false,
-  //     maxHeight: '400px',
-  //     autofocus: true,
-  //     placeholder: 'Введите текст...',
-  //     status: false,
-  //     autosave: {
-  //       enabled: true,
-  //       uniqueId: 'editpost',
-  //       delay: 1000,
-  //     },
-  //   };
-  // }, []);
+  const options = React.useMemo(() => {
+    return {
+      spellChecker: false,
+      maxHeight: '400px',
+      autofocus: true,
+      placeholder: 'Введите текст...',
+      status: false,
+      autosave: {
+        enabled: true,
+        uniqueId: 'editpost',
+        delay: 1000,
+      },
+    };
+  }, []);
 
   if (typeof window !== 'undefined') {
     if (!window.localStorage.getItem('token') && !isAuth) {
-      // router.push('/blog');
-      // return <Navigate to="/" />;
+      return <Navigate to="/blog" />;
     }
   }
 
@@ -194,25 +180,19 @@ export const AddPost = () => {
           fullWidth
           autoFocus
         />
-        {/* <>
-          <SimpleMdeEditor
-            // value={post.content}
-            // onChange={value => setPost({ ...post, content: value })}
-            className={styles.editor}
-            value={text}
-            onChange={onChange}
-            options={options}
-          />
-        </> */}
-        {/* <DraftEditor /> */}
+        <SimpleMDE
+          className={styles.editor}
+          value={text}
+          onChange={onChange}
+          options={options}
+        />
         <div className={styles.buttons}>
           <Button onClick={onSubmit} size="large" variant="contained">
-            Publish
-            {/* {isEditing ? 'Save' : 'Publish'} */}
+            {isEditing ? 'Save' : 'Publish'}
           </Button>
-          {/* <Link href="/blog">
+          <Link to="/blog">
             <Button size="large">Отмена</Button>
-          </Link> */}
+          </Link>
         </div>
       </Paper>
     </div>

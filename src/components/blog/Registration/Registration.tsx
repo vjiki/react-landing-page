@@ -6,10 +6,8 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-// import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux';
 
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
@@ -18,12 +16,10 @@ import styles from './Login.module.scss';
 
 export const Registration = () => {
   // const isAuth = useSelector(selectIsAuth);
-
   // const dispatch = useDispatch();
 
   const isAuth = useAppSelector(selectIsAuth);
   const dispatch = useAppDispatch();
-  // const router = useRouter();
 
   const {
     register,
@@ -53,8 +49,7 @@ export const Registration = () => {
   };
 
   if (isAuth) {
-    // return <Navigate to="/" />;
-    // router.push('/blog');
+    return <Navigate to="/blog" />;
   }
 
   return (

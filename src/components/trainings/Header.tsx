@@ -2,15 +2,29 @@ import React, { Fragment } from 'react';
 
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-// import Link from 'next/link';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import config from '../../config/index.json';
+import { logout, selectIsAuth } from '../../redux/slices/auth';
 
 const Menu = () => {
   const { navigation, navigationLinks, callToAction } = config;
   const { company } = config;
   const { name: companyName, logo, href: companyHref } = company;
+
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  const onClickLogout = () => {
+    if (window.confirm('Are you sure you want to logout')) {
+      dispatch(logout());
+      window.localStorage.removeItem('token');
+    }
+  };
 
   return (
     <>
@@ -47,32 +61,34 @@ const Menu = () => {
               </div>
             </div>
             <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-              {navigation.map((item) => (
-                // <a key={item.name}></a>
-                // <Link2
-                //   spy={true}
-                //   active="active"
-                //   smooth={true}
-                //   duration={1000}
-                //   key={item.name}
-                //   to={item.href}
-                //   className="font-medium text-gray-500 hover:text-gray-900"
-                // >
-                //   {item.name}
-                // </Link2>
-                // <Link key={item.name} href={item.href} scroll>
-                //   <a className="font-medium text-gray-500 hover:text-gray-900">
-                //     {item.name}
-                //   </a>
-                // </Link>
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="font-medium text-gray-500 hover:text-gray-900"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {/* {navigation.map(
+                (item) =>
+                  // <Link2
+                  //   spy={true}
+                  //   active="active"
+                  //   smooth={true}
+                  //   duration={1000}
+                  //   key={item.name}
+                  //   to={item.href}
+                  //   className="font-medium text-gray-500 hover:text-gray-900"
+                  // >
+                  //   {item.name}
+                  // </Link2>
+                  // <Link key={item.name} href={item.href} scroll>
+                  //   <a className="font-medium text-gray-500 hover:text-gray-900"> {item.name} </a>
+                  // </Link>
+                  isHomePage && (
+                    <HashLink
+                      key={item.name}
+                      to={item.href}
+                      className="font-medium text-gray-500 hover:text-gray-900"
+                      smooth
+                      timeout={5000}
+                    >
+                      {item.name}
+                    </HashLink>
+                  )
+              )} */}
               {navigationLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -82,6 +98,37 @@ const Menu = () => {
                   {link.name}
                 </Link>
               ))}
+              {isAuth ? (
+                <>
+                  <Link
+                    to="/blog/addpost"
+                    className={`font-medium text-gray-500 hover:text-gray-900`}
+                  >
+                    Write Post
+                  </Link>
+                  <a
+                    onClick={onClickLogout}
+                    className={`font-medium text-gray-500 hover:text-gray-900`}
+                  >
+                    Logout
+                  </a>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/blog/login"
+                    className={`font-medium text-gray-500 hover:text-gray-900`}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/blog/register"
+                    className={`font-medium text-gray-500 hover:text-gray-900`}
+                  >
+                    Register
+                  </Link>
+                </>
+              )}
             </div>
           </nav>
         </div>
@@ -116,50 +163,40 @@ const Menu = () => {
                 </div>
               </div>
               <div className="px-2 pt-2 pb-3 space-y-1">
-                {navigation.map((item) => (
-                  // <Link2
-                  //   spy={true}
-                  //   active="active"
-                  //   smooth={true}
-                  //   duration={1000}
-                  //   key={item.name}
-                  //   to={item.href}
-                  //   className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  // >
-                  //   {item.name}
-                  // </Link2>
-                  // <Link key={item.name} href={item.href} scroll>
-                  //   <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-                  //     {item.name}
-                  //   </a>
-                  // </Link>
-                  // <a key={item.name}></a>
+                {navigation.map(
+                  (item) =>
+                    isHomePage && (
+                      <HashLink
+                        key={item.name}
+                        to={item.href}
+                        smooth
+                        // scroll
+                        timeout={5000}
+                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                      >
+                        {item.name}
+                      </HashLink>
+                    )
+                )}
+                {navigationLinks.map((link) => (
                   <Link
-                    key={item.name}
-                    to={item.href}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                    key={link.name}
+                    to={link.href}
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-5"
                   >
-                    {item.name}
+                    {link.name}
                   </Link>
                 ))}
-                {navigationLinks.map((link) => (
-                  <a key={link.name}></a>
-
-                  // <Link key={link.name} href={link.href}>
-                  //   <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-5">
-                  //     {link.name}
-                  //   </a>
-                  // </Link>
-                ))}
               </div>
-              {/* <Link key={callToAction.text} href={callToAction.href}>
-                <a
+              {isHomePage && (
+                <HashLink
+                  key={callToAction.text}
+                  to={callToAction.href}
                   className={`block w-full px-5 py-3 text-center font-medium text-primary bg-gray-50 hover:bg-gray-100`}
                 >
                   {callToAction.text}
-                </a>
-              </Link> */}
-              <a key={callToAction.text}></a>
+                </HashLink>
+              )}
             </div>
           </Popover.Panel>
         </Transition>

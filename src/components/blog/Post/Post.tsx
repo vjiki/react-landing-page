@@ -4,16 +4,14 @@ import React from 'react';
 
 import CommentIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import DeleteIcon from '@mui/icons-material/Clear';
+import EditIcon from '@mui/icons-material/Edit';
 import EyeIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import IconButton from '@mui/material/IconButton';
 import clsx from 'clsx';
-// import Link from 'next/link';
-
-// import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
-// import { useAppDispatch } from '../../../redux/hooks';
+import { Link } from 'react-router-dom';
 
 import { useAppDispatch } from '../../../redux/hooks';
+// import { useDispatch } from 'react-redux';
 import { fetchRemovePost } from '../../../redux/slices/posts';
 import { UserInfo } from '../UserInfo/UserInfo';
 import styles from './Post.module.scss';
@@ -48,7 +46,6 @@ export const Post = ({
   isLoading,
   isEditable,
 }: PostProps) => {
-  // const dispatch = useDispatch();
   const dispatch = useAppDispatch();
 
   if (isLoading) {
@@ -62,15 +59,14 @@ export const Post = ({
   };
 
   return (
-    // { [styles.rootFull]: isFullPost })}>
     <div className={clsx(styles.root, isFullPost ? styles.rootFull : '')}>
       {isEditable && (
         <div className={styles.editButtons}>
-          {/* <Link href={`/blog/posts/${id}/edit`}>
+          <Link to={`/blog/posts/${id}/edit`}>
             <IconButton color="primary">
               <EditIcon />
             </IconButton>
-          </Link> */}
+          </Link>
           <IconButton onClick={onClickRemove} color="secondary">
             <DeleteIcon />
           </IconButton>
@@ -78,35 +74,21 @@ export const Post = ({
       )}
       {imageUrl && (
         <img
-          // className={clsx(styles.image)}
           className={clsx(styles.image, isFullPost ? styles.imageFull : '')}
           src={imageUrl}
           alt={title}
         />
       )}
-      {/* {imageUrl && !isFullPost && (
-        <img
-          // className={clsx(styles.image)}
-          className={clsx(styles.image, styles.imageFull)}
-          src={imageUrl}
-          alt={title}
-        />
-      )} */}
       <div className={styles.wrapper}>
         <UserInfo {...user} additionalText={createdAt} />
         <div className={styles.indention}>
           <h2 className={clsx(styles.title)}>
-            {isFullPost
-              ? title
-              : // <Link href={`/blog/posts/${id}`}>{title}</Link>
-                title}
+            {isFullPost ? title : <Link to={`/blog/posts/${id}`}>{title}</Link>}
           </h2>
           <ul className={styles.tags}>
             {tags.map((name: any) => (
               <li key={name}>
-                {/* todo */}
-                {/* <Link href={`/tag/${name}`}>#{name}</Link> */}
-                <a href={`/tag/${name}`}>#{name}</a>
+                <Link to={`/blog/tag/${name}`}>#{name}</Link>
               </li>
             ))}
           </ul>

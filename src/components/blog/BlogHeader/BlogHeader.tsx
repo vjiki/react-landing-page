@@ -1,9 +1,8 @@
 import React from 'react';
 
 import Button from '@mui/material/Button';
-// import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { logout, selectIsAuth } from '../../../redux/slices/auth';
 import styles from './BlogHeader.module.scss';
@@ -20,16 +19,16 @@ export const BlogHeader = () => {
   };
 
   return (
-    <div className="max-w-7xl">
+    <div className="max-w-5xl">
       {/* <div className={`flex sm:flex-row`}> */}
-      <div className="relative flex items-center justify-between sm:h-10 lg:justify-end">
+      <div className="relative flex items-center mt-10 justify-between sm:h-10 lg:justify-end sm:justify-end sm:right-10">
         <div className={styles.root}>
           <div className={styles.buttons}>
             {isAuth ? (
               <>
-                {/* <Link href="/blog/addpost">
+                <Link to="/blog/addpost">
                   <Button variant="contained">Написать статью</Button>
-                </Link> */}
+                </Link>
                 <Button
                   onClick={onClickLogout}
                   variant="contained"
@@ -40,12 +39,12 @@ export const BlogHeader = () => {
               </>
             ) : (
               <>
-                {/* <Link href="/blog/login">
+                <Link to="/blog/login">
                   <Button variant="outlined">Войти</Button>
                 </Link>
-                <Link href="/blog/register">
+                <Link to="/blog/register">
                   <Button variant="contained">Создать аккаунт</Button>
-                </Link> */}
+                </Link>
               </>
             )}
           </div>

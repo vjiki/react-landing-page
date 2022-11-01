@@ -5,9 +5,9 @@ const instance = axios.create({
   baseURL: 'http://localhost:4444',
 });
 
-instance.interceptors.request.use((config) => {
+instance.interceptors.request.use((config: any) => {
   // eslint-disable-next-line no-param-reassign
-  // config.headers.Authorization = window.localStorage.getItem('token');
+  config.headers.Authorization = window.localStorage.getItem('token');
   return config;
 });
 

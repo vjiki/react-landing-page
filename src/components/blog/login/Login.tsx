@@ -1,13 +1,13 @@
 /* eslint-disable consistent-return */
 import React from 'react';
 
-// import { Navigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 // import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import { Navigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchAuth, selectIsAuth } from '../../../redux/slices/auth';
@@ -22,7 +22,6 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors, isValid },
-    // eslint-disable-next-line react-hooks/rules-of-hooks
   } = useForm({
     defaultValues: {
       email: '',
@@ -43,7 +42,7 @@ const Login = () => {
   };
 
   if (isAuth) {
-    // return <Navigate to="/" />;
+    return <Navigate to="/blog" />;
     // todo
     // router.push('/blog');
   }

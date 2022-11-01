@@ -1,14 +1,12 @@
-/* eslint-disable react/no-children-prop */
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 
-// import { useRouter } from 'next/router';
 import ReactMarkdown from "react-markdown";
+import { useParams } from "react-router-dom";
 
 import axios from '../../axios';
-import { Index } from './AddComment/Index';
-import { CommentsBlock } from './CommentsBlock';
+// import { CommentsBlock } from './CommentsBlock';
 import { Post } from './Post/Post';
 
 type PostProps = {
@@ -25,20 +23,14 @@ type PostProps = {
 };
 
 export const FullPost = () => {
-  // const [isLoading] = React.useState(true);
-  // const router = useRouter();
-  // const { id } = router.query;
-
+  const { id } = useParams();
   const [data, setData] = React.useState<PostProps>();
   const [isLoading, setLoading] = React.useState(true);
-  // const { id } = useParams();
 
   React.useEffect(() => {
-    // if(!router.isReady) return;
 
-    // console.log(id);
     axios
-      .get(`/posts/`) // ${id}
+      .get(`/posts/${id}`)
       .then((res) => {
         setData(res.data);
         setLoading(false);
@@ -48,8 +40,6 @@ export const FullPost = () => {
         alert('Failed to get post');
       });
     }, []);
-
-  // }, [router.isReady]);
 
   if (isLoading) {
     return <Post isLoading={isLoading} isFullPost />;
@@ -80,7 +70,7 @@ export const FullPost = () => {
       >
         <ReactMarkdown children={data.text} />
       </Post>
-      <CommentsBlock
+      {/* <CommentsBlock
         items={[
           {
             user: {
@@ -100,7 +90,7 @@ export const FullPost = () => {
         isLoading={false}
       >
         <Index />
-      </CommentsBlock>
+      </CommentsBlock> */}
       </div>
     </>
   );

@@ -8,9 +8,9 @@ import Tabs from '@mui/material/Tabs';
 // import { useDispatch, useSelector } from 'react-redux';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { fetchTags, fetchPosts } from '../../redux/slices/posts';
-import { CommentsBlock } from './CommentsBlock';
+// import { CommentsBlock } from './CommentsBlock';
 import { Post } from './Post/Post';
-import { TagsBlock } from './TagsBlock';
+// import { TagsBlock } from './TagsBlock';
 
 export const Home = () => {
   // const dispatch = useDispatch();
@@ -18,10 +18,11 @@ export const Home = () => {
   // const { posts, tags } = useAppSelector((state) => state.posts);
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.auth.data);
-  const { posts, tags } = useAppSelector((state) => state.posts);
+  const { posts } = useAppSelector((state) => state.posts);
+  // const { posts, tags } = useAppSelector((state) => state.posts);
 
   const isPostsLoading = posts.status === 'loading';
-  const isTagsLoading = tags.status === 'loading';
+  // const isTagsLoading = tags.status === 'loading';
 
   React.useEffect(() => {
     dispatch(fetchPosts());
@@ -40,7 +41,9 @@ export const Home = () => {
           <Tab label="Популярные" />
         </Tabs>
         <Grid container spacing={4}>
-          <Grid xs={8} item>
+          {/* <Grid container spacing={4}> */}
+          <Grid xs={16} item>
+            {/* <Grid xs={8} item> */}
             {(isPostsLoading ? [...Array(5)] : posts.items).map(
               (obj: any, index: any) =>
                 isPostsLoading ? (
@@ -62,7 +65,7 @@ export const Home = () => {
                 )
             )}
           </Grid>
-          <Grid xs={4} item>
+          {/* <Grid xs={4} item>
             <TagsBlock items={tags.items} isLoading={isTagsLoading} />
             <CommentsBlock
               items={[
@@ -83,7 +86,7 @@ export const Home = () => {
               ]}
               isLoading={false}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </div>
     </>

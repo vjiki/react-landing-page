@@ -6,7 +6,7 @@ import Canvas from '../../components/trainings/Canvas';
 import Header from '../../components/trainings/Header';
 import LazyShow from '../../components/trainings/LazyShow';
 
-const register = () => {
+const RegisterPage = () => {
   return (
     <div className={`bg-background grid gap-y-4 overflow-hidden`}>
       <div className={`relative bg-background`}>
@@ -33,4 +33,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default RegisterPage;
