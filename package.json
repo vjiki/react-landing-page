@@ -19,7 +19,9 @@
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
     "easymde": ">= 2.0.0 < 3.0.0",
+    "firebase": "^9.13.0",
     "framer-motion": "^5.6.0",
+    "html-to-draftjs": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
@@ -67,6 +69,7 @@
   "devDependencies": {
     "@types/draft-js": "^0.11.9",
     "@types/draftjs-to-html": "^0.8.1",
+    "@types/html-to-draftjs": "^1.4.0",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^18.0.8",
