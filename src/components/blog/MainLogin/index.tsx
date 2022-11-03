@@ -5,17 +5,17 @@ import React, { useContext, useState } from 'react';
 
 // import { useHistory } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Card, CardBody, CardHeader } from 'reactstrap';
 
-import CenterPiece from '../../components/mblog/CenterPiece';
-import ErrorText from '../../components/mblog/ErrorText';
-import LoadingComponent from '../../components/mblog/LoadingComponent';
-import { Providers } from '../../config/firebase';
-import logging from '../../config/logging';
-import UserContext from '../../contexts/user';
-import { Authenticate, SignInWithSocialMedia } from '../../modules/Auth';
-import './bootstrap.min.scss';
+import { Providers } from '../../../config/firebase';
+import logging from '../../../config/logging';
+import UserContext from '../../../contexts/user';
+import { Authenticate, SignInWithSocialMedia } from '../../../modules/Auth';
+import CenterPiece from '../CenterPiece';
+import ErrorText from '../ErrorText';
+import LoadingComponent from '../LoadingComponent';
+import '../../../styles/bootstrap.min.scss';
 
 const MLoginPage: React.FunctionComponent<{}> = (props) => {
   const [authenticating, setAuthenticating] = useState<boolean>(false);
@@ -90,25 +90,38 @@ const MLoginPage: React.FunctionComponent<{}> = (props) => {
   };
 
   return (
-    <div className="usebootstrap">
-      <CenterPiece>
-        <Card>
-          <CardHeader>{isLogin ? 'Login' : 'Sign Up'}</CardHeader>
-          <CardBody>
-            <ErrorText error={error} />
-            <Button
-              block
-              disabled={authenticating}
-              onClick={() => signInWithSocialMedia(Providers.google)}
-              style={{ backgroundColor: '#ea4335', borderColor: '#ea4335' }}
-            >
-              <i className="fab fa-google mr-2"></i> Sign{' '}
-              {isLogin ? 'in' : 'up'} with Google
-            </Button>
-            {authenticating && <LoadingComponent card={false} />}
-          </CardBody>
-        </Card>
-      </CenterPiece>
+    <div className="relative mt-32">
+      <div className="usebootstrap">
+        {/* <Container fluid className="flex items-center justify-center"> */}
+        <CenterPiece>
+          <Card>
+            <CardHeader>{isLogin ? 'Login' : 'Sign Up'}</CardHeader>
+            <CardBody>
+              <ErrorText error={error} />
+              <Button
+                block
+                disabled={authenticating}
+                onClick={() => signInWithSocialMedia(Providers.google)}
+                style={{ backgroundColor: '#ea4335', borderColor: '#ea4335' }}
+              >
+                <i className="fab fa-google mr-2"></i> Sign{' '}
+                {isLogin ? 'in' : 'up'} with Google
+              </Button>
+              <Link
+                className="mt-10"
+                to={isLogin ? '/blog/login' : '/blog/register'}
+              >
+                <Button variant="outlined">
+                  {' '}
+                  Sign {isLogin ? 'in' : 'up'} with Local Account{' '}
+                </Button>
+              </Link>
+              {authenticating && <LoadingComponent card={false} />}
+            </CardBody>
+          </Card>
+        </CenterPiece>
+        {/* </Container> */}
+      </div>
     </div>
   );
 };

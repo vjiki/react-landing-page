@@ -10,10 +10,10 @@ import axios from 'axios';
 import { Navigate, Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Container, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-import ErrorText from '../../components/mblog/ErrorText';
-import Header from '../../components/mblog/Header';
-import LoadingComponent, { Loading } from '../../components/mblog/LoadingComponent';
-import Navigation from '../../components/mblog/Navigation';
+import ErrorText from '../../components/blog/ErrorText';
+import Header from '../../components/blog/Header';
+import LoadingComponent, { Loading } from '../../components/blog/LoadingComponent';
+import Navigation from '../../components/blog/Navigation';
 import config from '../../config/config';
 import UserContext from '../../contexts/user';
 import IBlog from '../../interfaces/blog';
@@ -24,7 +24,7 @@ import IUser from '../../interfaces/user';
 // import "bootstrap/dist/js/bootstrap.bundle.min";
 // import './bootstrap.min.css';
 // import './BLOG.module.scss'
-import './bootstrap.min.scss';
+import '../../styles/bootstrap.min.scss';
 
 const MBlogPage: React.FunctionComponent<any> = () => {
     const [_id, setId] = useState<string>('');

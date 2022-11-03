@@ -6,8 +6,14 @@ import React, { useReducer, useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
+import { AddPost } from './components/blog/AddPost/AddPost';
+import AroundBlock from './components/blog/AroundBlock';
 import { EditPost } from './components/blog/EditPost/EditPost';
-import LoadingComponent from './components/mblog/LoadingComponent';
+import { FullPost } from './components/blog/FullPost';
+import LoadingComponent from './components/blog/LoadingComponent';
+import MLoginPage from './components/blog/MainLogin';
+import { FAQ } from './components/faq/FAQ';
+import Contacts from './components/trainings/Contacts';
 import logging from './config/logging';
 import {
   initialUserState,
@@ -15,19 +21,11 @@ import {
   userReducer,
 } from './contexts/user';
 import { Validate } from './modules/Auth';
-import Blog from './pages/blog';
-import AddPostPage from './pages/blog/addpost';
-import LoginPage from './pages/blog/login';
-import FullPostPage from './pages/blog/posts/fullpost';
-import RegisterPage from './pages/blog/register';
-import ContactsPage from './pages/contacts';
-import EditPostPage from './pages/editpost';
-import FaqPage from './pages/faq';
+import Blog from './pages/blog/blog';
+import MBlogPage from './pages/blog/mblog';
+import MEditPage from './pages/blog/medit';
+import MHomePage from './pages/blog/mhome';
 import Home from './pages/home';
-import MMBlogPage from './pages/mblog/full/blog';
-import MMEditPage from './pages/mblog/full/edit';
-import MMHomePage from './pages/mblog/full/home';
-import MMLoginPage from './pages/mblog/full/login';
 import { useAppDispatch } from './redux/hooks';
 import { fetchAuthMe } from './redux/slices/auth';
 
@@ -42,6 +40,7 @@ function App() {
 
   React.useEffect(() => {
     dispatch(fetchAuthMe());
+
     setTimeout(() => {
       CheckLocalStorageForCredentials();
     }, 1000);
@@ -85,22 +84,134 @@ function App() {
     <UserContextProvider value={userContextValues}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/login" element={<LoginPage />} />
-        <Route path="/blog/register" element={<RegisterPage />} />
-        <Route path="/blog/addpost" element={<AddPostPage />} />
-        <Route path="/blog/posts/:id/edit" element={<AddPostPage />} />
-        <Route path="/blog/posts/:id" element={<FullPostPage />} />
-        <Route path="/blog/editpost" element={<EditPost />} />
-        <Route path="/mblog" element={<MMHomePage />} />
-        <Route path="/mblog/login" element={<MMLoginPage />} />
-        <Route path="/mblog/register" element={<MMLoginPage />} />
-        <Route path="/mblog/edit" element={<MMEditPage />} />
-        <Route path="/mblog/edit/:blogID/edit" element={<MMEditPage />} />
-        <Route path="/mblog/blogs/:blogID" element={<MMBlogPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="/faq" element={<FaqPage />} />
-        <Route path="/editpost" element={<EditPostPage />} />
+        <Route
+          path="/blog"
+          element={
+            <AroundBlock>
+              <Blog />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/blog/login"
+          element={
+            <AroundBlock>
+              <MLoginPage />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/blog/register"
+          element={
+            <AroundBlock>
+              <MLoginPage />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/blog/addpost"
+          element={
+            <AroundBlock>
+              <AddPost />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/blog/posts/:id/edit"
+          element={
+            <AroundBlock>
+              <AddPost />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/blog/posts/:id"
+          element={
+            <AroundBlock>
+              <FullPost />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/blog/editpost"
+          element={
+            <AroundBlock>
+              <EditPost />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/mblog"
+          element={
+            <AroundBlock>
+              <MHomePage />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/mblog/login"
+          element={
+            <AroundBlock>
+              <MLoginPage />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/mblog/register"
+          element={
+            <AroundBlock>
+              <MLoginPage />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/mblog/edit"
+          element={
+            <AroundBlock>
+              <MEditPage />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/mblog/edit/:blogID/edit"
+          element={
+            <AroundBlock>
+              <MEditPage />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/mblog/blogs/:blogID"
+          element={
+            <AroundBlock>
+              <MBlogPage />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <AroundBlock>
+              <Contacts />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/faq"
+          element={
+            <AroundBlock>
+              <FAQ />
+            </AroundBlock>
+          }
+        />
+        <Route
+          path="/editpost"
+          element={
+            <AroundBlock>
+              <EditPost />
+            </AroundBlock>
+          }
+        />
       </Routes>
     </UserContextProvider>
   );

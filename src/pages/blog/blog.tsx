@@ -6,13 +6,13 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 
 // import { useDispatch, useSelector } from 'react-redux';
+import { Post } from '../../components/blog/Post/Post';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { fetchTags, fetchPosts } from '../../redux/slices/posts';
 // import { CommentsBlock } from './CommentsBlock';
-import { Post } from './Post/Post';
 // import { TagsBlock } from './TagsBlock';
 
-export const Home = () => {
+const Blog = () => {
   // const dispatch = useDispatch();
   // const userData = useSelector((state) => state.auth.data);
   // const { posts, tags } = useAppSelector((state) => state.posts);
@@ -53,7 +53,7 @@ export const Home = () => {
                     id={obj._id}
                     title={obj.title}
                     imageUrl={
-                      obj.imageUrl ? `http://localhost:4444${obj.imageUrl}` : ''
+                      obj.imageUrl ? `http://localhost:3000${obj.imageUrl}` : ''
                     }
                     user={obj.user}
                     createdAt={obj.createdAt}
@@ -92,3 +92,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Blog;

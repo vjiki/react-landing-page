@@ -1,12 +1,17 @@
 import React from 'react';
 
-import About from '../../../components/trainings/About';
-import Canvas from '../../../components/trainings/Canvas';
-import Header from '../../../components/trainings/Header';
-import LazyShow from '../../../components/trainings/LazyShow';
-import MBlogPage from '../blog';
+import About from '../../trainings/About';
+import Canvas from '../../trainings/Canvas';
+import Header from '../../trainings/Header';
+import LazyShow from '../../trainings/LazyShow';
 
-const MMBlogPage = () => {
+export interface IAroundBlockProps {
+  children?: any;
+}
+
+const AroundBlock: React.FunctionComponent<IAroundBlockProps> = (props) => {
+  const { children } = props;
+
   return (
     <div className={`bg-background grid gap-y-4 overflow-hidden`}>
       <div className={`relative bg-background`}>
@@ -18,10 +23,12 @@ const MMBlogPage = () => {
           </div>
         </div>
       </div>
-      <>
-        <MBlogPage />
-        <Canvas />
-      </>
+      <LazyShow>
+        <>
+          {children}
+          <Canvas />
+        </>
+      </LazyShow>
       <LazyShow>
         <>
           <About />
@@ -31,4 +38,4 @@ const MMBlogPage = () => {
   );
 };
 
-export default MMBlogPage;
+export default AroundBlock;

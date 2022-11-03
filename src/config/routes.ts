@@ -1,8 +1,8 @@
+import LoginPage from '../components/blog/MainLogin';
 import IRoute from '../interfaces/route';
-import BlogPage from '../pages/mblog/blog';
-import EditPage from '../pages/mblog/edit';
-import HomePage from '../pages/mblog/home';
-import LoginPage from '../pages/mblog/login';
+import BlogPage from '../pages/blog/mblog';
+import EditPage from '../pages/blog/medit';
+import HomePage from '../pages/blog/mhome';
 
 const authRoutes: IRoute[] = [
   {

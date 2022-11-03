@@ -14,16 +14,16 @@ import { Editor } from 'react-draft-wysiwyg';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 
-import ErrorText from '../../components/mblog/ErrorText';
-import Header from '../../components/mblog/Header';
-import LoadingComponent from '../../components/mblog/LoadingComponent';
-import Navigation from '../../components/mblog/Navigation';
-import SuccessText from '../../components/mblog/SuccessText';
+import ErrorText from '../../components/blog/ErrorText';
+import Header from '../../components/blog/Header';
+import LoadingComponent from '../../components/blog/LoadingComponent';
+import Navigation from '../../components/blog/Navigation';
+import SuccessText from '../../components/blog/SuccessText';
 import config from '../../config/config';
 import logging from '../../config/logging';
 import UserContext from '../../contexts/user';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import './bootstrap.min.scss';
+import '../../styles/bootstrap.min.scss';
 
 const MEditPage: React.FunctionComponent<any> = () => {
   const [_id, setId] = useState<string>('');

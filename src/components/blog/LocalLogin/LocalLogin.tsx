@@ -13,7 +13,7 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchAuth, selectIsAuth } from '../../../redux/slices/auth';
 import styles from './Login.module.scss';
 
-const Login = () => {
+const LocalLogin = () => {
   const isAuth = useAppSelector(selectIsAuth);
   const dispatch = useAppDispatch();
   // const router = useRouter();
@@ -84,4 +84,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LocalLogin;

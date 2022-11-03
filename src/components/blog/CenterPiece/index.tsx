@@ -16,6 +16,7 @@ const CenterPiece: React.FunctionComponent<ICenterPieceProps> = (props) => {
           position: 'absolute',
           left: '50%',
           top: '50%',
+          // marginTop: 164,
           transform: 'translate(-50%, -50%)',
           WebkitTransform: 'translate(-50%, -50%)',
         }}
