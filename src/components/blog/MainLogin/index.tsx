@@ -14,7 +14,6 @@ import UserContext from '../../../contexts/user';
 import { Authenticate, SignInWithSocialMedia } from '../../../modules/Auth';
 import CenterPiece from '../CenterPiece';
 import ErrorText from '../ErrorText';
-import LoadingComponent from '../LoadingComponent';
 import '../../../styles/bootstrap.min.scss';
 
 const MLoginPage: React.FunctionComponent<{}> = (props) => {
@@ -55,7 +54,7 @@ const MLoginPage: React.FunctionComponent<{}> = (props) => {
                     payload: { user: _user, fire_token },
                   });
                   // history.push('/');
-                  navigate('/mblog');
+                  navigate('/blog');
                 }
               });
             } catch (error) {
@@ -116,7 +115,6 @@ const MLoginPage: React.FunctionComponent<{}> = (props) => {
                   Sign {isLogin ? 'in' : 'up'} with Local Account{' '}
                 </Button>
               </Link>
-              {authenticating && <LoadingComponent card={false} />}
             </CardBody>
           </Card>
         </CenterPiece>

@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 import { useAppDispatch } from '../../../redux/hooks';
 // import { useDispatch } from 'react-redux';
-import { fetchRemovePost } from '../../../redux/slices/posts';
+import { fetchRemoveBlog } from '../../../redux/slices/blogs';
 import { UserInfo } from '../UserInfo/UserInfo';
 import styles from './Post.module.scss';
 import { PostSkeleton } from './Skeleton';
@@ -22,7 +22,7 @@ type PostProps = {
   title?: any,
   createdAt?: any,
   imageUrl?: any,
-  user?: any,
+  author?: any,
   viewsCount?: any,
   commentsCount?: any,
   tags?: any,
@@ -37,7 +37,7 @@ export const Post = ({
   title,
   createdAt,
   imageUrl,
-  user,
+  author,
   viewsCount,
   commentsCount,
   tags,
@@ -54,7 +54,7 @@ export const Post = ({
 
   const onClickRemove = () => {
     if (window.confirm('Are you sure you want to remove post?')) {
-      dispatch(fetchRemovePost(id));
+      dispatch(fetchRemoveBlog(id));
     }
   };
 
@@ -80,7 +80,7 @@ export const Post = ({
         />
       )}
       <div className={styles.wrapper}>
-        <UserInfo {...user} additionalText={createdAt} />
+        <UserInfo {...author} additionalText={createdAt} />
         <div className={styles.indention}>
           <h2 className={clsx(styles.title)}>
             {isFullPost ? title : <Link to={`/blog/posts/${id}`}>{title}</Link>}
@@ -92,7 +92,12 @@ export const Post = ({
               </li>
             ))}
           </ul>
-          {children && <div className={styles.content}>{children}</div>}
+          {children && (
+            <div
+              className={styles.content}
+              dangerouslySetInnerHTML={{ __html: children.props.children }}
+            />
+          )}
           <ul className={styles.postDetails}>
             <li>
               <EyeIcon />

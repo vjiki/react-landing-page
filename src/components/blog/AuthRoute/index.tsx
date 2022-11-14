@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 
 // import { Redirect } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { useLocation, Navigate } from 'react-router-dom';
 
 import logging from '../../../config/logging';
 import UserContext from '../../../contexts/user';
@@ -14,13 +14,14 @@ export interface IAuthRouteProps {
 // todo
 const AuthRoute: React.FunctionComponent<IAuthRouteProps> = (props) => {
   const { children } = props;
+  const location = useLocation();
 
   const userContext = useContext(UserContext);
 
   if (userContext.userState.user._id === '') {
     logging.info('Unauthorized, redirecting.');
     // return <Redirect to='/login' />
-    return <Navigate replace to="/mblog/login" />;
+    return <Navigate to="/blog/login" state={{ from: location }} replace />;
   }
   return <>{children}</>;
 };

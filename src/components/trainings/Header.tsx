@@ -1,27 +1,37 @@
-import React, { Fragment } from 'react';
+/* eslint-disable no-underscore-dangle */
+import React, { Fragment, useContext } from 'react';
 
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 import config from '../../config/index.json';
-import { logout, selectIsAuth } from '../../redux/slices/auth';
+// import { logout, selectIsAuth } from '../../redux/slices/auth';
+import UserContext from '../../contexts/user';
+// import { logout } from '../../redux/slices/auth';
 
 const Menu = () => {
   const { navigation, navigationLinks, callToAction } = config;
   const { company } = config;
   const { name: companyName, logo, href: companyHref } = company;
+  const userContext = useContext(UserContext);
+  const { user } = userContext.userState;
 
-  const dispatch = useDispatch();
-  const isAuth = useSelector(selectIsAuth);
+  // const dispatch = useDispatch();
+  // const isAuth = useSelector(selectIsAuth);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
   const onClickLogout = () => {
     if (window.confirm('Are you sure you want to logout')) {
-      dispatch(logout());
+      // dispatch(logout());
+      userContext.userDispatch({
+        type: 'logout',
+        payload: userContext.userState,
+      });
       window.localStorage.removeItem('token');
     }
   };
@@ -98,7 +108,7 @@ const Menu = () => {
                   {link.name}
                 </Link>
               ))}
-              {isAuth ? (
+              {user._id !== '' ? (
                 <>
                   <Link
                     to="/blog/addpost"

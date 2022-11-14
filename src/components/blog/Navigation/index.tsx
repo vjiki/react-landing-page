@@ -30,13 +30,13 @@ const Navigation: React.FunctionComponent<INavigationProps> = (props) => {
   return (
     <Navbar color="light" light sticky="top" expand="md">
       <Container>
-        <NavbarBrand tag={Link} to="/mblog">
+        <NavbarBrand tag={Link} to="/blog">
           📝
         </NavbarBrand>
         <Nav className="mr-auto" navbar></Nav>
         {user._id !== '' ? (
           <div>
-            <Button outline tag={Link} to="/mblog/edit">
+            <Button outline tag={Link} to="/blog/edit">
               <i className="far fa-sticky-note mr-2"></i>
               Post a Blog
             </Button>

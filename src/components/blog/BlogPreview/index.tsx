@@ -23,7 +23,7 @@ const BlogPreview: React.FunctionComponent<IBlogPreviewProps> = (props) => {
       <Card className="border-0">
         <CardBody className="p-0">
           <Link
-            to={`/mblog/blogs/${_id}`}
+            to={`/blogs/${_id}`}
             style={{ textDecoration: 'none' }}
             className="text-primary"
           >

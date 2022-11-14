@@ -1,95 +1,66 @@
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 
 import Grid from '@mui/material/Grid';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 
-// import { useDispatch, useSelector } from 'react-redux';
 import { Post } from '../../components/blog/Post/Post';
+import config from '../../config/config';
+import UserContext from '../../contexts/user';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { fetchTags, fetchPosts } from '../../redux/slices/posts';
-// import { CommentsBlock } from './CommentsBlock';
-// import { TagsBlock } from './TagsBlock';
+import { fetchBlogs } from '../../redux/slices/blogs';
 
-const Blog = () => {
-  // const dispatch = useDispatch();
-  // const userData = useSelector((state) => state.auth.data);
-  // const { posts, tags } = useAppSelector((state) => state.posts);
+const Blog: React.FunctionComponent<{}> = () => {
   const dispatch = useAppDispatch();
-  const userData = useAppSelector((state) => state.auth.data);
-  const { posts } = useAppSelector((state) => state.posts);
-  // const { posts, tags } = useAppSelector((state) => state.posts);
+  // const userData = useAppSelector((state) => state.auth.data);
+  const { blogs } = useAppSelector((state) => state.blogs);
+  const userContext = useContext(UserContext);
+  const { user } = userContext.userState;
 
-  const isPostsLoading = posts.status === 'loading';
-  // const isTagsLoading = tags.status === 'loading';
+  const isPostsLoading = blogs.status === 'loading';
 
-  React.useEffect(() => {
-    dispatch(fetchPosts());
-    dispatch(fetchTags());
+  useEffect(() => {
+    dispatch(fetchBlogs());
+    // blogs.sort((x,y) => y.updatedAt.localeCompare(x.updatedAt));
   }, []);
 
+  const shownBlogs = isPostsLoading
+    ? [...Array(5)].map((obj, index) => <Post key={index} isLoading={true} />)
+    : blogs.items.blogs.map((obj, index) => (
+        <Post
+          key={index}
+          id={obj._id}
+          title={obj.title}
+          // author={(blog.author as IUser).name}
+          // headline={blog.headline}
+          // updatedAt={blog.updatedAt}
+          imageUrl={obj.imageUrl ? `${config.server.url}${obj.imageUrl}` : ''}
+          author={obj.author}
+          createdAt={obj.createdAt}
+          viewsCount={obj.viewsCount}
+          commentsCount={3}
+          tags={obj.tags}
+          isEditable={user._id === obj.author._id}
+        />
+      ));
+
   return (
-    <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Tabs
-          style={{ marginBottom: 15 }}
-          value={0}
-          aria-label="basic tabs example"
-        >
-          <Tab label="Новые" />
-          <Tab label="Популярные" />
-        </Tabs>
-        <Grid container spacing={4}>
-          {/* <Grid container spacing={4}> */}
-          <Grid xs={16} item>
-            {/* <Grid xs={8} item> */}
-            {(isPostsLoading ? [...Array(5)] : posts.items).map(
-              (obj: any, index: any) =>
-                isPostsLoading ? (
-                  <Post key={index} isLoading={true} />
-                ) : (
-                  <Post
-                    id={obj._id}
-                    title={obj.title}
-                    imageUrl={
-                      obj.imageUrl ? `http://localhost:3000${obj.imageUrl}` : ''
-                    }
-                    user={obj.user}
-                    createdAt={obj.createdAt}
-                    viewsCount={obj.viewsCount}
-                    commentsCount={3}
-                    tags={obj.tags}
-                    isEditable={userData?._id === obj.user._id}
-                  />
-                )
-            )}
-          </Grid>
-          {/* <Grid xs={4} item>
-            <TagsBlock items={tags.items} isLoading={isTagsLoading} />
-            <CommentsBlock
-              items={[
-                {
-                  user: {
-                    fullName: 'Вася Пупкин',
-                    avatarUrl: 'https://mui.com/static/images/avatar/1.jpg',
-                  },
-                  text: 'Это тестовый комментарий',
-                },
-                {
-                  user: {
-                    fullName: 'Иван Иванов',
-                    avatarUrl: 'https://mui.com/static/images/avatar/2.jpg',
-                  },
-                  text: 'When displaying three lines or more, the avatar is not aligned at the top. You should set the prop to align the avatar at the top',
-                },
-              ]}
-              isLoading={false}
-            />
-          </Grid> */}
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Tabs
+        style={{ marginBottom: 15 }}
+        value={0}
+        aria-label="basic tabs example"
+      >
+        <Tab label="Новые" />
+        <Tab label="Популярные" />
+      </Tabs>
+      <Grid container spacing={4}>
+        <Grid xs={16} item>
+          {shownBlogs}
         </Grid>
-      </div>
-    </>
+      </Grid>
+    </div>
   );
 };
 

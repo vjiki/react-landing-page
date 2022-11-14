@@ -9,7 +9,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Skeleton from '@mui/material/Skeleton';
 
-import { SideBlock } from './SideBlock/SideBlock';
+import { SideBlock } from '../../components/blog/SideBlock/SideBlock';
 
 type TagsBlockProps = {
   items: any,

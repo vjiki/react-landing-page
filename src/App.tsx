@@ -1,71 +1,76 @@
+/* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 
 // import { useDispatch, useSelector } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { AddPost } from './components/blog/AddPost/AddPost';
 import AroundBlock from './components/blog/AroundBlock';
-import { EditPost } from './components/blog/EditPost/EditPost';
-import { FullPost } from './components/blog/FullPost';
-import LoadingComponent from './components/blog/LoadingComponent';
-import MLoginPage from './components/blog/MainLogin';
-import { FAQ } from './components/faq/FAQ';
-import Contacts from './components/trainings/Contacts';
+import AuthRoute from './components/blog/AuthRoute';
+// import { AddPost } from './components/blog/AddPost/AddPost';
+// import AroundBlock from './components/blog/AroundBlock';
+// import { EditPost } from './components/blog/EditPost/EditPost';
+// import MLoginPage from './components/blog/MainLogin';
+// import { FAQ } from './components/faq/FAQ';
+// import Contacts from './components/trainings/Contacts';
 import logging from './config/logging';
+import routes from './config/routes';
 import {
   initialUserState,
   UserContextProvider,
   userReducer,
 } from './contexts/user';
 import { Validate } from './modules/Auth';
-import Blog from './pages/blog/blog';
-import MBlogPage from './pages/blog/mblog';
-import MEditPage from './pages/blog/medit';
-import MHomePage from './pages/blog/mhome';
 import Home from './pages/home';
-import { useAppDispatch } from './redux/hooks';
-import { fetchAuthMe } from './redux/slices/auth';
+// import Blog from './pages/blog/blog';
+// import FullPost from './pages/blog/fullpost';
+// import Home from './pages/home';
 
-function App() {
-  const dispatch = useAppDispatch();
+// import { useAppDispatch } from './redux/hooks';
+// import { fetchAuthMe } from './redux/slices/auth';
+
+export interface IApplicationProps {}
+
+const App: React.FunctionComponent<IApplicationProps> = (props) => {
+  // const dispatch = useAppDispatch();
   // const isAuth = useSelector(selectIsAuth);
+
   const [userState, userDispatch] = useReducer(userReducer, initialUserState);
-  const [authStage, setAuthStage] = useState<string>(
-    'Checking localstorage ...'
-  );
-  const [loading, setLoading] = useState<boolean>(true);
+  // const [authStage, setAuthStage] = useState<string>(
+  //   'Checking localstorage ...'
+  // );
+  // const [loading, setLoading] = useState<boolean>(true);
 
   React.useEffect(() => {
-    dispatch(fetchAuthMe());
+    // dispatch(fetchAuthMe());
 
-    setTimeout(() => {
-      CheckLocalStorageForCredentials();
-    }, 1000);
+    // setTimeout(() => {
+    CheckLocalStorageForCredentials();
+    // }, 1000);
   }, []);
 
   const CheckLocalStorageForCredentials = () => {
-    setAuthStage('Checking credentials ...');
+    // setAuthStage('Checking credentials ...');
 
     const fire_token = localStorage.getItem('fire_token');
 
     if (fire_token === null) {
       userDispatch({ type: 'logout', payload: initialUserState });
-      setAuthStage('No credentials found');
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
+      // setAuthStage('No credentials found');
+      // setTimeout(() => {
+      //   // setLoading(false);
+      // }, 500);
     } else {
       return Validate(fire_token, (error, user) => {
         if (error) {
           logging.error(error);
           userDispatch({ type: 'logout', payload: initialUserState });
-          setLoading(false);
+          // setLoading(false);
         } else if (user) {
           userDispatch({ type: 'login', payload: { user, fire_token } });
-          setLoading(false);
+          // setLoading(false);
         }
       });
     }
@@ -76,14 +81,58 @@ function App() {
     userDispatch,
   };
 
-  if (loading) {
-    return <LoadingComponent>{authStage}</LoadingComponent>;
-  }
+  const appRoutes = routes.map((route, index) => {
+    if (route.auth) {
+      return (
+        <Route
+          path={route.path}
+          element={
+            <AuthRoute>
+              <AroundBlock>
+                <route.component />
+              </AroundBlock>
+            </AuthRoute>
+          }
+          // exact={route.exact}
+          key={index}
+          // render={(routeProps: RouteComponentProps) => (
+          //   <AuthRoute>
+          //     <route.component {...routeProps} />
+          //   </AuthRoute>
+          // )}
+          // render={() => (
+          //   <AuthRoute>
+          //     <route.component />
+          //   </AuthRoute>
+          // )}
+        />
+      );
+    }
+
+    return (
+      <Route
+        path={route.path}
+        element={
+          <AroundBlock>
+            <route.component />
+          </AroundBlock>
+        }
+        // exact={route.exact}
+        key={index}
+        // render={(routeProps: RouteComponentProps) => <route.component {...routeProps} />}
+      />
+    );
+  });
 
   return (
     <UserContextProvider value={userContextValues}>
       <Routes>
+        {appRoutes}
         <Route path="/" element={<Home />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+      {/* <Routes> */}
+      {/* <Route path="/" element={<Home />} />
         <Route
           path="/blog"
           element={
@@ -141,14 +190,6 @@ function App() {
           }
         />
         <Route
-          path="/mblog"
-          element={
-            <AroundBlock>
-              <MHomePage />
-            </AroundBlock>
-          }
-        />
-        <Route
           path="/mblog/login"
           element={
             <AroundBlock>
@@ -161,30 +202,6 @@ function App() {
           element={
             <AroundBlock>
               <MLoginPage />
-            </AroundBlock>
-          }
-        />
-        <Route
-          path="/mblog/edit"
-          element={
-            <AroundBlock>
-              <MEditPage />
-            </AroundBlock>
-          }
-        />
-        <Route
-          path="/mblog/edit/:blogID/edit"
-          element={
-            <AroundBlock>
-              <MEditPage />
-            </AroundBlock>
-          }
-        />
-        <Route
-          path="/mblog/blogs/:blogID"
-          element={
-            <AroundBlock>
-              <MBlogPage />
             </AroundBlock>
           }
         />
@@ -211,10 +228,10 @@ function App() {
               <EditPost />
             </AroundBlock>
           }
-        />
-      </Routes>
+        /> */}
+      {/* </Routes> */}
     </UserContextProvider>
   );
-}
+};
 
 export default App;

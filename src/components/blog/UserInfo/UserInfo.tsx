@@ -4,13 +4,13 @@ import styles from './UserInfo.module.scss';
 
 type UserInfoProps = {
   avatarUrl: any,
-  fullName: any,
+  name: any,
   additionalText: any,
 };
 
 export const UserInfo = ({
   avatarUrl,
-  fullName,
+  name,
   additionalText,
 }: UserInfoProps) => {
   return (
@@ -18,10 +18,10 @@ export const UserInfo = ({
       <img
         className={styles.avatar}
         src={avatarUrl || '/noavatar.png'}
-        alt={fullName}
+        alt={name}
       />
       <div className={styles.userDetails}>
-        <span className={styles.userName}>{fullName}</span>
+        <span className={styles.userName}>{name}</span>
         <span className={styles.additional}>{additionalText}</span>
       </div>
     </div>
