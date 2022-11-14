@@ -7,30 +7,30 @@
   "navigation": [
     {
       "name": "Branding4U",
-      "href": "product"
+      "href": "/#product"
     },
     {
       "name": "Trainings",
-      "href": "trainings"
+      "href": "/#trainings"
     }
   ],
   "navigationLinks": [
     {
       "name": "Blog",
-      "href": "blog"
+      "href": "/blog"
     },
     {
       "name": "FAQ",
-      "href": "faq"
+      "href": "/faq"
     },
     {
       "name": "Contacts",
-      "href": "contacts"
+      "href": "/contacts"
     }
   ],
   "callToAction": {
     "text": "Get started",
-    "href": "#"
+    "href": "/#"
   },
   "mainHero": {
     "title": "Erasmus+ project:",
@@ -39,7 +39,7 @@
     "img": "/assets/images/team_working.jpg",
     "primaryAction": {
       "text": "Get started",
-      "href": "/contacts"
+      "href": "/#"
     },
     "secondaryAction": {
       "text": "Email us",
